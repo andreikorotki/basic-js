@@ -9,9 +9,21 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  * @example
  * For n = 152, the output should be 52
- *
+ * 12518
  */
-export default function deleteDigit(/* n */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function deleteDigit(n) {
+  if (n !== undefined) {
+    let arr = n.toString().split('');
+  
+    let numbers = [];
+    for (let index = 0; index < arr.length; index++) {
+      let tmp = arr.slice();
+      tmp.splice(index, 1);
+     
+      numbers.push(parseInt(tmp.join(''), 10));
+    }
+    return Math.max(...numbers);
+  }
 }
+
+//console.log(deleteDigit(12518));
